@@ -1,0 +1,127 @@
+:py:mod:`labtools.adtools.alternative.experimentbuilder`
+========================================================
+
+.. py:module:: labtools.adtools.alternative.experimentbuilder
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   labtools.adtools.alternative.experimentbuilder._Sequence
+   labtools.adtools.alternative.experimentbuilder.SeqList
+   labtools.adtools.alternative.experimentbuilder.Barcode
+   labtools.adtools.alternative.experimentbuilder.AD
+   labtools.adtools.alternative.experimentbuilder.Sample
+   labtools.adtools.alternative.experimentbuilder.Experiment
+
+
+
+
+.. py:class:: _Sequence(seq)
+
+   Parent class of AD and barcode.
+
+   .. py:method:: update()
+
+      Report that the sequence was found again.
+
+
+   .. py:method:: __eq__(other)
+
+      Custom operator to compare equality of sequence objects.
+
+
+   .. py:method:: __str__()
+
+      When printing the object, show the sequence.
+
+
+   .. py:method:: __lt__(other)
+
+      Return self<value.
+
+
+   .. py:method:: __gt__(other)
+
+      Return self>value.
+
+
+   .. py:method:: has_same_seq(other)
+
+
+   .. py:method:: is_seq_in_list(_list)
+
+
+   .. py:method:: merge(other)
+
+
+
+.. py:class:: SeqList
+
+   Bases: :py:obj:`list`
+
+   List of sequence objects.
+
+   .. py:method:: has_same_sequences(other)
+
+
+   .. py:method:: __str__()
+
+      Return str(self).
+
+
+
+.. py:class:: Barcode(seq)
+
+   Bases: :py:obj:`_Sequence`
+
+   A short DNA sequence used to identify a read.
+
+   .. py:method:: link_AD(AD)
+
+      Add the barcode object to the list of associated barcodes.
+
+
+
+.. py:class:: AD(seq)
+
+   Bases: :py:obj:`_Sequence`
+
+   A designed DNA tile attached to a transcription factor.
+
+   .. py:method:: link_barcode(barcode)
+
+      Add the barcode object to the list of associated barcodes.
+
+
+
+.. py:class:: Sample(file, name, position, barcoded=True, event_count=100000)
+
+   An individual sequencing sample (bin).
+
+   .. py:method:: parse()
+
+      Count tiles and assign barcodes in the sample.
+
+
+
+.. py:class:: Experiment(name, num_bins)
+
+   A group of samples from the same sort
+
+   .. py:method:: add_sample(sample)
+
+      Add a sample to the experiment.
+
+
+   .. py:method:: normalize(data_in, bincounts=None)
+
+      Normalize the read data.
+
+
+

@@ -1,0 +1,114 @@
+:py:mod:`labtools.adtools.seqlib`
+=================================
+
+.. py:module:: labtools.adtools.seqlib
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   labtools.adtools.seqlib.read_fasta
+   labtools.adtools.seqlib.read_fastq
+   labtools.adtools.seqlib.read_fastq_big
+   labtools.adtools.seqlib.get_numreads
+
+
+
+.. py:function:: read_fasta(filename)
+
+   Generator for reading entries in a fasta file.
+
+   Yields 2 lines of a fasta file at a time (name, seq).
+
+   :param filename: Path to fasta or fasta.gz file.
+   :type filename: str
+
+   :Yields: * **name** (*str*) -- Name of sequence.
+            * **seq** (*str*) -- Biological sequence.
+
+   .. rubric:: Examples
+
+   >>> for line in read_fasta("example.fasta"):
+   ...     name = line[0]
+   ...     seq = line[1]
+   ...     print(name, seq)
+   Geraldine
+   ACGTGCTGAGGCTGCGCTAGCAT
+   Gustavo
+   CTGATGCTAGATGCTGATA
+
+
+.. py:function:: read_fastq(filename, subset=None)
+
+   Generator for reading entries in a fastq file.
+
+   Yields 4 lines of a fastq file at a time (name, seq, +, error).
+
+   :param filename: Path to fastq or fastq.gz file.
+   :type filename: str
+   :param subset: Number of reads to randomly sample from the fastq file.
+   :type subset: int, optional
+
+   :Yields: **(name, seq, qual)** (*tup*) -- tuple of str containing name, seq and quality for entry.
+
+   .. rubric:: Examples
+
+   >>> for line in read_fastq("example.fasta"):
+   ...     name = line[0]
+   ...     seq = line[1]
+   ...     qual = line[2]
+   ...     print(name, seq)
+   Geraldine
+   ACGTGCTGAGGCTGCGCTAGCAT
+   Gustavo
+   CTGATGCTAGATGCTGATA
+
+
+.. py:function:: read_fastq_big(filename)
+
+   Generator for fastq file without opening into memory.
+
+   Yields 4 lines of a fastq file at a time (name, seq, +, error).
+   Useful in situations where the fastq file is large and opening into RAM
+   would crash computer. Does not currently support subsetting.
+
+   :param filename: Path to fastq or fastq.gz file.
+   :type filename: str
+
+   :Yields: **(name, seq, qual)** (*tup*) -- tuple of str containing name, seq and quality for entry.
+
+   .. rubric:: Examples
+
+   >>> for line in read_fastq_big("example.fasta"):
+   ...     name = line[0]
+   ...     seq = line[1]
+   ...     qual = line[2]
+   ...     print(name, seq)
+   Geraldine
+   ACGTGCTGAGGCTGCGCTAGCAT
+   Gustavo
+   CTGATGCTAGATGCTGATA
+
+
+.. py:function:: get_numreads(filename)
+
+   Returns number of reads in a fastq file.
+
+   :param filename: Path to fastq or fastq.gz file.
+   :type filename: str
+
+   :returns: **numreads** -- Number of reads in the fastq file.
+   :rtype: int
+
+   .. rubric:: Examples
+
+   >>> get_numreads("example.fastq")
+   124
+
+

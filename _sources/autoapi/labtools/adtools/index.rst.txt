@@ -1,0 +1,29 @@
+:py:mod:`labtools.adtools`
+==========================
+
+.. py:module:: labtools.adtools
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   alternative/index.rst
+   tests/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   finder/index.rst
+   pair_counter/index.rst
+   random_code_snippets/index.rst
+   seqlib/index.rst
+   sort/index.rst
+
+

@@ -1,0 +1,68 @@
+:py:mod:`labtools.shuffle`
+==========================
+
+.. py:module:: labtools.shuffle
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   labtools.shuffle.windowed_shuffle
+
+
+
+.. py:function:: windowed_shuffle(seq, window_size=5, step_size=1, n_shuffles=1, short_last_window=False)
+
+   Return a number of uniquely shuffled sequences.
+
+   If n_shuffles is higher than the number of possible unique shuffles in that window,
+   only the unique shuffles are returned. Returns sequences with shuffled letters in lowercase.
+
+   :param seq: Sequence to shuffle.
+   :type seq: str
+   :param window_size: Size of shuffle region.
+   :type window_size: int, default 5
+   :param step_size: Distance between window starts (default 1).
+   :type step_size: int, default 1
+   :param n_shuffles: Number of shuffles to make for each region (default 1).
+   :type n_shuffles: int, default 1
+   :param short_last_window: Whether last window can be less than window_size to include all letters (default False).
+   :type short_last_window: bool, default False
+
+   :returns: A list of shuffled sequences.
+   :rtype: list
+
+   .. rubric:: Examples
+
+   >>> shuffles_list, names_list = shuffle.windowed_shuffle("ABCDEFGHIJKLMNOPQRSTUVWYXZ")
+   ...shuffles_list
+   ['decbaFGHIJKLMNOPQRSTUVWYXZ',
+    'AfdecbGHIJKLMNOPQRSTUVWYXZ',
+    'ABfcdegHIJKLMNOPQRSTUVWYXZ',
+    'ABCfdhgeIJKLMNOPQRSTUVWYXZ',
+    'ABCDhgeifJKLMNOPQRSTUVWYXZ',
+    'ABCDEifgjhKLMNOPQRSTUVWYXZ',
+    'ABCDEFhjgkiLMNOPQRSTUVWYXZ',
+    'ABCDEFGkjilhMNOPQRSTUVWYXZ',
+    'ABCDEFGHikmljNOPQRSTUVWYXZ',
+    'ABCDEFGHIjmlknOPQRSTUVWYXZ',
+    'ABCDEFGHIJomklnPQRSTUVWYXZ',
+    'ABCDEFGHIJKpomlnQRSTUVWYXZ',
+    'ABCDEFGHIJKLpoqnmRSTUVWYXZ',
+    'ABCDEFGHIJKLMronqpSTUVWYXZ',
+    'ABCDEFGHIJKLMNsqrpoTUVWYXZ',
+    'ABCDEFGHIJKLMNOrsqtpUVWYXZ',
+    'ABCDEFGHIJKLMNOPsutrqVWYXZ',
+    'ABCDEFGHIJKLMNOPQstruvWYXZ',
+    'ABCDEFGHIJKLMNOPQRvsutwYXZ',
+    'ABCDEFGHIJKLMNOPQRSuvwytXZ',
+    'ABCDEFGHIJKLMNOPQRSTxuvywZ',
+    'ABCDEFGHIJKLMNOPQRSTUwxzyv']
+
+

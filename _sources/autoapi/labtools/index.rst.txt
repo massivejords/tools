@@ -1,0 +1,32 @@
+:py:mod:`labtools`
+==================
+
+.. py:module:: labtools
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   adtools/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   labtools/index.rst
+   shuffle/index.rst
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+
+   
+

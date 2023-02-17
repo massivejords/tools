@@ -1,0 +1,30 @@
+:py:mod:`labtools.adtools.random_code_snippets`
+===============================================
+
+.. py:module:: labtools.adtools.random_code_snippets
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   labtools.adtools.random_code_snippets.race
+   labtools.adtools.random_code_snippets.seq_counter_old
+
+
+
+.. py:function:: race(file)
+
+   Two methods of counting reads compete.
+
+
+.. py:function:: seq_counter_old(fastq, design_to_use=None, barcoded=False, subset=None, **kwargs)
+
+   Count occurences of ADs or AD/bc pairs.
+
+

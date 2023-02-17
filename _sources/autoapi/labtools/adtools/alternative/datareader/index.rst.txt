@@ -1,0 +1,24 @@
+:py:mod:`labtools.adtools.alternative.datareader`
+=================================================
+
+.. py:module:: labtools.adtools.alternative.datareader
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   labtools.adtools.alternative.datareader.get_ADs
+
+
+
+.. py:function:: get_ADs(ADs)
+
+   Take a set of AD objects and return the sequences.
+
+

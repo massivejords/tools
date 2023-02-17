@@ -1,0 +1,65 @@
+:py:mod:`labtools.adtools.tests.test`
+=====================================
+
+.. py:module:: labtools.adtools.tests.test
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   labtools.adtools.tests.test.TestReadMethods
+   labtools.adtools.tests.test.TestExperimentMethods
+   labtools.adtools.tests.test.TestSequenceMethods
+
+
+
+
+.. py:class:: TestReadMethods(methodName='runTest')
+
+   Bases: :py:obj:`unittest.TestCase`
+
+   Test the methods for raw read parsing.
+
+   .. py:method:: setUp()
+
+      Hook method for setting up the test fixture before exercising it.
+
+
+   .. py:method:: test_tile()
+
+      Test the pull_AD function with normal input.
+
+
+   .. py:method:: test_truncated_read()
+
+      Test the pull_AD function with a truncated read.
+
+
+   .. py:method:: test_random_read()
+
+      Test the pull_AD function with an undesigned read.
+
+
+
+.. py:class:: TestExperimentMethods(methodName='runTest')
+
+   Bases: :py:obj:`unittest.TestCase`
+
+   Tests for ExperimentBuilder Module.
+
+
+.. py:class:: TestSequenceMethods(methodName='runTest')
+
+   Bases: :py:obj:`unittest.TestCase`
+
+   Tests for Sequence methods.
+
+   .. py:method:: test_AD_list_equality()
+
+
+

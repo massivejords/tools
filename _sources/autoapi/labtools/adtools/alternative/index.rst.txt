@@ -1,0 +1,17 @@
+:py:mod:`labtools.adtools.alternative`
+======================================
+
+.. py:module:: labtools.adtools.alternative
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   datareader/index.rst
+   eb2/index.rst
+   experimentbuilder/index.rst
+
+

@@ -1,0 +1,81 @@
+:py:mod:`labtools.adtools.alternative.eb2`
+==========================================
+
+.. py:module:: labtools.adtools.alternative.eb2
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   labtools.adtools.alternative.eb2.initialize_record
+   labtools.adtools.alternative.eb2.create_connection
+   labtools.adtools.alternative.eb2.create_table
+   labtools.adtools.alternative.eb2.create_link
+   labtools.adtools.alternative.eb2.insert_from_file
+   labtools.adtools.alternative.eb2.count_unique
+   labtools.adtools.alternative.eb2.export_to_pandas_df
+   labtools.adtools.alternative.eb2.export_to_csv
+   labtools.adtools.alternative.eb2.initialize_db
+   labtools.adtools.alternative.eb2.main
+
+
+
+.. py:function:: initialize_record(fastq, db_file)
+
+
+.. py:function:: create_connection(db_file)
+
+   create a database connection to the SQLite database
+       specified by db_file
+   :param db_file: database file
+   :return: Connection object or None
+
+
+.. py:function:: create_table(conn, create_table_sql)
+
+   create a table from the create_table_sql statement
+   :param conn: Connection object
+   :param create_table_sql: a CREATE TABLE statement
+   :return:
+
+
+.. py:function:: create_link(conn, link)
+
+   Create a new project into the projects table
+   :param conn:
+   :param link:
+   :return: link id
+
+
+.. py:function:: insert_from_file(conn, file)
+
+   Add all tile, barcode pairs from fastq file into db.
+
+
+.. py:function:: count_unique(conn)
+
+   SELECT *, COUNT(barcode) FROM ADbarcodes GROUP BY AD, barcode;
+
+
+.. py:function:: export_to_pandas_df(conn, sql='SELECT *, COUNT(barcode) FROM ADbarcodes GROUP BY AD, barcode;')
+
+   Make the table into a pandas dataframe.
+
+
+.. py:function:: export_to_csv(conn, name)
+
+   Make the table into csv file.
+
+
+.. py:function:: initialize_db(name)
+
+
+.. py:function:: main()
+
+

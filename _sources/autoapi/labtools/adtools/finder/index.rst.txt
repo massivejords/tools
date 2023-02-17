@@ -1,0 +1,50 @@
+:py:mod:`labtools.adtools.finder`
+=================================
+
+.. py:module:: labtools.adtools.finder
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   labtools.adtools.finder.pull_AD
+
+
+
+.. py:function:: pull_AD(read, barcoded=False, ad_preceder='GCTAGC', bc_preceder='GGGCCCG', bc_anteceder='GGAGAGAA', ad_length=120, bclength=11, **kwargs)
+
+   Find the activation domain tile in a read.
+
+   Takes a read sequence and uses customizable anchor sequences to locate a
+   variable sequence (AD/seq of interest) in the read. Includes support for barcodes.
+
+   :param read: The biological read of interest.
+   :type read: str
+   :param barcoded: Whether or not the sequence includes a barcode in addition to the AD/seq of interest.
+   :type barcoded: bool, default False
+   :param ad_preceder: The anchor sequence directly before the AD.
+   :type ad_preceder: str, default "GCTAGC"
+   :param bc_preceder: The anchor sequence directly before the barcode.
+   :type bc_preceder: str, default "GGGCCCG"
+   :param bc_anteceder: The anchor sequence directly after the barcode.
+   :type bc_anteceder: str, default "GGAGAGAA"
+   :param ad_length: The length of the AD/seq of interest.
+   :type ad_length: int, default 120
+   :param bc_length: The length of the barcode sequence if used.
+   :type bc_length: int, default 11
+
+   :returns: * **AD** (*str*) -- The sequence of interest, if located. Else None.
+             * **barcode** (*str*) -- The barcode, if used and located. Else None.
+
+   .. rubric:: Examples
+
+   >>> pull_AD("ACTTTTATVGCTAGCATGGCTGGTAGATCTTGGTTGATTGATTCTAATAGAATTGCTACTAAGATTATGTCTGCTTCTGCTTCTTCTGATCCAAGACAAGTTGTTTGGAAATCTAATCCATCTAGACATTGTCCAGCTGATCGATGCTAGTAGAGAGAGA")
+   ATGGCTGGTAGATCTTGGTTGATTGATTCTAATAGAATTGCTACTAAGATTATGTCTGCTTCTGCTTCTTCTGATCCAAGACAAGTTGTTTGGAAATCTAATCCATCTAGACATTGTCCA
+
+

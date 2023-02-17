@@ -1,0 +1,15 @@
+:py:mod:`labtools.adtools.tests`
+================================
+
+.. py:module:: labtools.adtools.tests
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   test/index.rst
+
+

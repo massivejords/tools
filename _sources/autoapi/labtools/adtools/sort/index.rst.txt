@@ -1,0 +1,34 @@
+:py:mod:`labtools.adtools.sort`
+===============================
+
+.. py:module:: labtools.adtools.sort
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   labtools.adtools.sort.Sort
+
+
+
+
+.. py:class:: Sort(data_files, bin_counts, bin_values, design_file=None)
+
+   A sort object.
+
+   .. py:method:: process(csv=False, **kwargs)
+
+      Calculate the activity for each tile.
+
+
+   .. py:method:: downsample(subset_size)
+
+      Perform downsampling on raw reads, then analyze.
+
+
+

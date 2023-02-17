@@ -1,0 +1,38 @@
+:py:mod:`labtools.adtools.pair_counter`
+=======================================
+
+.. py:module:: labtools.adtools.pair_counter
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   labtools.adtools.pair_counter.seq_counter
+   labtools.adtools.pair_counter.sort_normalizer
+   labtools.adtools.pair_counter.calculate_activity
+   labtools.adtools.pair_counter.main
+
+
+
+.. py:function:: seq_counter(fastq, design_to_use=None, barcoded=False, **kwargs)
+
+   Count occurences of ADs or AD/bc pairs.
+
+
+.. py:function:: sort_normalizer(pair_counts, bin_counts)
+
+   Normalize by reads per sample, reads per tile and reads per bin.
+
+
+.. py:function:: calculate_activity(df_in, bin_values, min_max=False)
+
+
+.. py:function:: main()
+
+
