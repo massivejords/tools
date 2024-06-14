@@ -52,6 +52,11 @@ class Sort():
         """
 
         sort_list = []
+        # LT: Initialize loss_table
+        # Note: bc_flanks and bc_length are not actually removed. 
+        # Those reads become bc_is_na if they pass the design file and thresholding.
+        loss_table = {'ad_preceder': 0, 'design_file': 0, 'thresh': 0, # This line shows truly removed reads. Sum of this line + sum of included reads should = total reads.
+                      'bc_is_na': 0, 'bc_flanks': 0, 'bc_length': 0}
         
         # super weird and needs to be double checked
         # converts output from bowtie bam to csv into same format
@@ -62,18 +67,25 @@ class Sort():
                 sort_list.append(parsed_sample)
         else: 
             for sample in self.data_files:
-                parsed_sample = seq_counter(sample, design_to_use = self.design_file, 
+                parsed_sample, design_loss_table = seq_counter(sample, loss_table=loss_table, design_to_use = self.design_file, 
                                             only_bcs = self.bc_dict, **kwargs)
+                # LT: Assign calculations from temporary design_loss_table to loss_table for each file.
+                loss_table['design_file'] += design_loss_table['filtered']
                 if self.bc_dict != False and self.bc_dict != True:
                     bd = read_bc_dict(self.bc_dict)
                     parsed_sample = convert_bcs_from_map(parsed_sample, bd)
                 sort_list.append(parsed_sample)
         
-        normed_sort, numreads, reads = sort_normalizer(sort_list, self.bin_counts, thresh = kwargs.get("thresh", 10))
+        normed_sort, numreads, reads, loss_table = sort_normalizer(sort_list, self.bin_counts, 
+                                                                   thresh = kwargs.get("thresh", 10), 
+                                                                  loss_table=loss_table)
+        # LT: Count reads where barcode is None and record in the loss_table
+        normnobcs = reads[reads.index.get_level_values(1).isna()]
+        loss_table['bc_is_na'] += normnobcs.sum(axis=1).sum()
 
         processed_sort = calculate_activity(normed_sort, self.bin_values)
 
-        return processed_sort, numreads, reads
+        return processed_sort, numreads, reads, loss_table
 
 
 
